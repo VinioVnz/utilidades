@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:utilidades/src/models/menu_model.dart';
+import 'package:utilidades/src/views/about_view.dart';
 import 'package:utilidades/src/views/home_view.dart';
 
 final List<MenuModel> appMenuItems = [
@@ -8,5 +9,11 @@ final List<MenuModel> appMenuItems = [
     icon: Icons.home,
     route: '/home',
     page: const HomeView(),
+  ),
+  MenuModel(
+    title: "Sobre mim",
+    icon: Icons.person_sharp,
+    route: '/about',
+    page: AboutView(),
   ),
 ];
