@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:utilidades/src/controllers/about_controller.dart';
 
 class AboutView extends StatelessWidget {
@@ -29,8 +30,8 @@ class AboutView extends StatelessWidget {
                         textAlign: TextAlign.justify,
                       ),
                     ),
-                  )
-                  .toList(),
+                  ).toList(),
+                  
             ),
             const SizedBox(height: 20),
             Row(
@@ -42,16 +43,16 @@ class AboutView extends StatelessWidget {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.deepPurpleAccent,
+                          color: link.color,
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(link.icon),
+                          icon: FaIcon(link.icon),
                           color: Colors.white,
                         ),
                       ),
-                      Text(link.name, style: TextStyle(fontSize: 12)),
+                      Text(link.name, style: TextStyle(fontSize: 12,)),
                     ],
                   ),
                 );
