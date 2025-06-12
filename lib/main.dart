@@ -6,7 +6,7 @@ import 'package:utilidades/src/app/app_widget.dart';
 
 void main() {
   //CMV
-  //runApp(AppWidget());
+  runApp(AppWidget());
 
   //ex future
  /*  runApp(MaterialApp(
@@ -20,6 +20,6 @@ void main() {
   )); */
 
 //ex isolate
-runApp(MaterialApp(home: ProductParse(),));
+//runApp(MaterialApp(home: ProductParse(),));
 }
 
