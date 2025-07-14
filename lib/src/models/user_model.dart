@@ -7,4 +7,9 @@ class UserModel {
     required this.password
   });
 
+  Map<String, dynamic> ToJson() => {
+    'username' : username,
+    'password' : password
+  };
+  
 }

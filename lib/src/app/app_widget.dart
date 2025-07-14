@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:utilidades/src/app/app_routes.dart';
-import 'package:utilidades/src/services/auth_service.dart';
 import 'package:utilidades/src/views/login_view.dart';
 
 class AppWidget extends StatelessWidget {
@@ -11,7 +10,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Utilidades",
-      initialRoute: AuthService.isLoggedIn ? "/home" : "/login",
+      initialRoute: "/home",
       routes: {
         '/login' :(context) => LoginView(),
         ...generateRoutes()
