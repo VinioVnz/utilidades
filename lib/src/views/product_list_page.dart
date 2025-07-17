@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:utilidades/src/controllers/product_controller.dart';
 import 'package:utilidades/src/models/product_model.dart';
 import 'package:utilidades/src/views/product_form.dart';
@@ -13,7 +14,7 @@ class ProductListPage extends StatefulWidget {
 class _ProductListPageState extends State<ProductListPage> {
   final _controller = ProductController();
   late Future<List<ProductModel>> _produtos;
-
+  final currencyFormat = NumberFormat.simpleCurrency(locale: 'pt_BR');
   @override
   void initState() {
     super.initState();
@@ -26,14 +27,28 @@ class _ProductListPageState extends State<ProductListPage> {
     });
   }
 
-  void abrirForm({ProductModel? produto}) async{
-      final resultado = await showDialog<bool>(
-        context: context,
-        builder: (_) => ProductForm(
-          produto: produto ,
-          controller: _controller, 
-          )
-      );
+  void _excluirProduto(int id) async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) =>
+          AlertDialog(title: const Text('Deseja excluir este item?'),),
+    );
+
+    if (confirm == true) {
+      await _controller.deletarProduto(id);
+      _loadProdutos();
+    }
+  }
+
+  void abrirForm({ProductModel? produto}) async {
+    final resultado = await showDialog<bool>(
+      context: context,
+      builder: (_) => ProductForm(produto: produto, controller: _controller),
+    );
+
+    if (resultado == true) {
+      _loadProdutos();
+    }
   }
 
   @override
@@ -59,14 +74,20 @@ class _ProductListPageState extends State<ProductListPage> {
                 return ListTile(
                   title: Text(p.nome),
                   subtitle: Text(
-                    "Preço; ${p.preco}\nDescrição: ${p.descricao}",
+                    "Preço: ${currencyFormat.format(p.preco)}\nDescrição: ${p.descricao}",
                   ),
                   isThreeLine: true,
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton(onPressed:() => abrirForm(produto: p), icon: Icon(Icons.edit)),
-                      IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+                      IconButton(
+                        onPressed: () => abrirForm(produto: p),
+                        icon: Icon(Icons.edit),
+                      ),
+                      IconButton(
+                        onPressed: () => _excluirProduto(p.id!),
+                        icon: Icon(Icons.delete),
+                      ),
                     ],
                   ),
                 );
@@ -77,9 +98,9 @@ class _ProductListPageState extends State<ProductListPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => abrirForm(),
-        child: Icon(Icons.add),
         backgroundColor: Colors.deepPurpleAccent,
-        ),
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
