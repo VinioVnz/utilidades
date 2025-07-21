@@ -18,9 +18,10 @@ class _PersonViewState extends State<PersonView> {
     super.initState();
     controller.loadPersons();
   }
-
+  
   @override
   Widget build(BuildContext context) {
+    print(controller.loadPersons());
     return Padding(
       padding: EdgeInsets.all(24),
       child: Column(

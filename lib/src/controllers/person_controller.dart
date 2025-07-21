@@ -6,7 +6,7 @@ class PersonController extends ChangeNotifier{
   final SqliteService _db = SqliteService();
 
   final List<PersonModel> _persons = [];
-  
+
   List<PersonModel> get persons => List.unmodifiable(_persons);
 
   Future<void> loadPersons() async{
@@ -17,6 +17,8 @@ class PersonController extends ChangeNotifier{
 
   Future<void> addPerson(String nome, int idade) async{
     final person = PersonModel(nome: nome, idade: idade);
+    await _db.insertPerson(person);
+    await loadPersons();
   }
 
   Future<void> deletePerson(int id) async{

@@ -16,16 +16,16 @@ class SqliteService {
 
   Future<Database> _initDB(String name) async{
     final path = join(await getDatabasesPath(), name);
-    return openDatabase(path, version: 1, onCreate: _OnCreate);
+    return openDatabase(path, version: 1, onCreate: _onCreate);
   }
 
-  Future<void> _OnCreate(Database db, int version) async{
+  Future<void> _onCreate(Database db, int version) async{
     await db.execute('''
     CREATE TABLE pessoas (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nome TEXT NOT NULL,
       idade INTEGER NOT NULL
-      )
+    )
     ''');
   }
 
@@ -42,6 +42,6 @@ class SqliteService {
 
   Future<void> deletePerson(int id) async{
     final database = await db;
-    await database.delete('pessoas',where: 'id = ?', whereArgs: [id]);
+    await database.delete('pessoas', where: 'id = ?', whereArgs: [id]);
   }
 }
