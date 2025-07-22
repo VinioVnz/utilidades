@@ -5,9 +5,14 @@ import 'package:utilidades/dartAvancado/isolate/product_parse.dart';
 import 'package:utilidades/dartAvancado/stream/busca_com_stream.dart';
 import 'package:utilidades/src/app/app_widget.dart';
 import 'package:utilidades/src/views/counter_cubit.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+void main() async{
   //CMV
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(AppWidget());
 
   //ex future

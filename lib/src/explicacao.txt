@@ -1,0 +1,21 @@
+FIREBASE
+firebase é uma plataforma da google para desenvolvimento de aplicativos
+web e mobile ele forece um conjunto de serviços prontos que ajudam você a
+construir, melhorar e escalar aplicativos rapidamente, 'sem precisar criar tudo
+no back-end'
+
+PRINCIPAIS FUNCIONALIDADES
+- Autenticação - login com e-mail/senha, google, facebook, apple, telefone e etc
+- Firestate - banco de dados noSQL em tempo real, escalável e com sincronização
+automática
+- Realtime database - banco de dados noSQL com foco em dados em tempo real
+- Storage - Armazenamento de arquivos(imagens, videos, pdf e etc)
+- Hosting - hospedagem rápida para sites estáticos como flutter web, react, angular e etc
+- Functios - funções servless com node.js para lógica no back-end
+- Analytics - monitoramento de uso, comportamento de usuário, eventos e etc
+- Crashlytics - relatórios de erros em tempo real(crash reports)
+- remote configs - personalização de comportamento do app remotamente
+- cloud messaging (FCM) - envio de notificações push para android, ios e web
+
+O firebase tem um plano gratuito para pequenos projetos e é bem generoso e um plano
+pago para projetos que escalaram.
