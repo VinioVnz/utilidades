@@ -11,9 +11,9 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Utilidades",
-      initialRoute: "/loginfirebase",
+      initialRoute: "/home",
       routes: {
-        '/login' :(context) => LoginView(),
+        //'/login' :(context) => LoginView(),
         '/loginfirebase' : (context) => FirebaseLoginView(),
         ...generateRoutes()
       },

@@ -11,7 +11,7 @@ class LoginController {
   } */
 
   final _ApiService = ApiService();
-
+/* 
   Future<bool> login(UserModel user) async {
     final token = await _ApiService.login(user.ToJson());
 
@@ -22,5 +22,5 @@ class LoginController {
     } else {
       return false;
     }
-  }
+  } */
 }

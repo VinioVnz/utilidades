@@ -32,7 +32,7 @@ class _LoginViewState extends State<LoginView> {
       });
     }
   } */
-
+/* 
   void _handleLogin() async {
     setState(() {
       _isLoading = true;
@@ -60,7 +60,7 @@ class _LoginViewState extends State<LoginView> {
           SnackBar(content: Text("Dados de login incorretos")));
     }
   }
-
+ */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +116,7 @@ class _LoginViewState extends State<LoginView> {
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: _handleLogin,
+                onPressed: (){}, //_handleLogin,
                 child: Text("Entrar", style: TextStyle(fontSize: 18)),
               ),
             ),
