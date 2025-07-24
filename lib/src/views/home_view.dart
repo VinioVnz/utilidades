@@ -11,9 +11,9 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
 
-  //String saudacao = FirebaseRemoteConfig.instance.getString('saudacao');
+  String saudacao = FirebaseRemoteConfig.instance.getString('saudacao');
 
-  /* @override
+   @override
   void initState(){
     super.initState();
 
@@ -27,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
         });
       }
     });
-  } */
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
       padding: EdgeInsets.all(24),
       child: ListView(
         children: [
-          //Text(saudacao),
+          Text(saudacao),
           Text(
             "Aplicativo de estudos Flutter",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

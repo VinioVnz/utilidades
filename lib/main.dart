@@ -16,21 +16,21 @@ void main() async{
 );
 
   //remote config SEMPRE ACIMA DO RUN APP
-  /* await FirebaseRemoteConfig.instance.setConfigSettings(
+   await FirebaseRemoteConfig.instance.setConfigSettings(
     RemoteConfigSettings(
       //define o tempo maximo para a execução da busca
       fetchTimeout: const Duration(minutes: 1),
       //define o intervalo entre as tentativas de busca
       minimumFetchInterval: const Duration(minutes: 1)
     )
-  ); */
+  ); 
 
-  /* await FirebaseRemoteConfig.instance.setDefaults(
+   await FirebaseRemoteConfig.instance.setDefaults(
     const {
       "saudacao" : "Bem vindo",
       
     }
-  ); */
+  ); 
   runApp(AppWidget());
 
   //ex future
