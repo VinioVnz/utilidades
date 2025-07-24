@@ -1,3 +1,4 @@
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:utilidades/dartAvancado/future/login.dart';
@@ -13,6 +14,23 @@ void main() async{
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
+
+  //remote config SEMPRE ACIMA DO RUN APP
+  await FirebaseRemoteConfig.instance.setConfigSettings(
+    RemoteConfigSettings(
+      //define o tempo maximo para a execução da busca
+      fetchTimeout: const Duration(minutes: 1),
+      //define o intervalo entre as tentativas de busca
+      minimumFetchInterval: const Duration(minutes: 1)
+    )
+  );
+
+  await FirebaseRemoteConfig.instance.setDefaults(
+    const {
+      "saudacao" : "Bem vindo",
+      
+    }
+  );
   runApp(AppWidget());
 
   //ex future
